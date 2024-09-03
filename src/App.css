@@ -1,0 +1,256 @@
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: #f55415;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(42, 177, 255);
+}
+.nav-links {
+  position: absolute;
+  right: 200px;
+  font-size: 20px;
+}
+.nav-search {
+  margin: 10px;
+}
+.nav-title {
+  margin: 0 5px;
+}
+.nav-logo {
+  height: 100px;
+  width: 110px;
+  margin: 10px;
+  justify-content: left;
+  align-items: center;
+  border-radius: 100%;
+}
+.login-link {
+  margin-left: 50px;
+}
+.userprofile-link {
+  margin: 10px;
+}
+.order-link {
+  margin: 10px;
+}
+.shoppingcart-link {
+  margin: 10px;
+}
+.trending {
+  display: flex;
+  align-items: center;
+}
+.random {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+}
+.footer {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgb(42, 177, 255);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.productcard {
+  text-align: center;
+}
+.sale-heading {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+.footer {
+  text-align: center;
+}
+.trending {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.random {
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+    rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+    rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+}
+.UserProfile {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 300px;
+  padding-left: 150px;
+  margin-left: 10px;
+}
+.user {
+  text-align: center;
+}
+
+.button-19 {
+  appearance: button;
+  background-color: #1899d6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 200px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.button-19:after {
+  background-clip: padding-box;
+  background-color: #1cb0f6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.button-19:main,
+.button-19:focus {
+  user-select: auto;
+}
+
+.button-19:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+
+.button-19:disabled {
+  cursor: auto;
+}
+
+.button-70 {
+  background-image: linear-gradient(#0dccea, #0d70ea);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-size: 0.9em;
+  margin: 5px;
+  padding: 10px 15px;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.login {
+  text-align: center;
+}
+.sale {
+  margin-left: 20px;
+}
+
+.UserProfile:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  margin-left: -270px;
+  padding-left: 20px;
+  border-radius: 5px;
+  width: 520px;
+  height: 275px;
+  z-index: -1;
+}
+
+.card {
+  position: absolute;
+  width: 450px;
+  height: 225px;
+  padding: 25px;
+  padding-top: 0;
+  padding-bottom: 0;
+  left: 50%;
+  margin-left: -250px;
+  background: #e9e2d0;
+  box-shadow: -20px 0 35px -25px black, 20px 0 35px -25px black;
+  z-index: 5;
+}
+
+.card h2 {
+  font-family: courier;
+  color: #333;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 15pt;
+}
+.profile {
+  text-align: center;
+  border: 2px bold;
+}
+.productcard {
+  width: 600px;
+  height: 600px;
+}
+.searchTitle {
+  text-align: center;
+  border: 2px bold;
+}
+.salecard {
+  width: 600px;
+  height: 600px;
+}
+.productprofile {
+  text-align: center;
+  margin: auto;
+}
+.signup-form {
+  text-align: center;
+}
+/* App.css or Item.module.css */
+.productcard .productprofile {
+  width: 220px;
+  height: 300px;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 10px; */
+  box-sizing: border-box;
+}
+
+.item-image {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.item-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
