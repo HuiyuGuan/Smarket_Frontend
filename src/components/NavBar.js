@@ -38,7 +38,7 @@ export default function NavBar(props) {
                 order
               </button>
             </Link>
-            <Link to="/shoppingcart" className="shoppingcart-link">
+            <Link to="/purchaseCart" className="purchaseCart-link">
               <button class="button-70" role="button">
                 cart
               </button>
