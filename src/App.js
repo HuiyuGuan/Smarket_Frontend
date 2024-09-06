@@ -55,7 +55,7 @@ function App() {
               element={<PurchaseCart user={user} />}
             />
             <Route
-              path="/:items/:item_id"
+              path="/items/:item_id"
               element={<ProductProfile user={user} />}
             />
           </Route>

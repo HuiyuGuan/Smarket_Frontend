@@ -1,23 +1,45 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import addItemToCart from "./addItemToCart";
 
 export default function ProductProfile(props) {
   const location = useLocation();
   const navigate = useNavigate();
   const user = props.user;
-  const item = location.state?.item || {}; // Fallback to an empty object
-  const item_id = location.state?.item_id;
-  // Add debug logs
-  useEffect(() => {
-    console.log("User:", user);
-    console.log("Item:", item);
-  }, [user, item]);
+  
+  // Get item from location.state or use item_id from URL params
+  const { item_id: paramItemId } = useParams(); // Use params for item_id from URL
+  const itemFromState = location.state?.item || null; // Item might come from state if navigated from another component
+  const item_id = location.state?.item_id || paramItemId; // Use item_id from location state or URL params
 
-  const [qty, setQty] = useState(1);
+  const [item, setItem] = useState(itemFromState); // Initialize with state item or null
+  const [qty, setQty] = useState(1); // Quantity default to 1
   const [qtyError, setQtyError] = useState("");
 
+  // Fetch item details if not provided via location.state
+  useEffect(() => {
+    if (!item && item_id) {
+      const fetchItemDetails = async () => {
+        try {
+          const response = await axios.get(`http://localhost:8080/items/${item_id}`);
+          setItem(response.data); // Set the fetched item data
+          console.log("Fetched Item:", response.data);
+        } catch (error) {
+          console.error("Error fetching item:", error);
+        }
+      };
+      fetchItemDetails();
+    }
+  }, [item, item_id]);
+
+    // Add debug logs
+    useEffect(() => {
+      console.log("User:", user);
+      console.log("Item:", item);
+      console.log("Item ID:", item_id);
+    }, [user, item, item_id]);
+  
   function validate() {
     let isValidate = true;
     if (!user || !user.username) {

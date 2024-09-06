@@ -46,7 +46,7 @@ export default function PurchaseCart(props) {
           <h1>Shopping Cart</h1>
           {cartItems.length ? (
             cartItems.map((item) => (
-              <div key={item.id} className="cart-item">
+              <div key={item.item_id} className="cart-item">
                 <Link to={`/items/${item.item_id}`}>
                   <img
                     className="item-image"
