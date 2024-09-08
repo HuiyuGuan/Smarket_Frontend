@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import addItemToCart from "./addItemToCart";
 
 export default function PurchaseCart(props) {
   const { user } = props;
   const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0); // Track total price
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -19,6 +19,10 @@ export default function PurchaseCart(props) {
             }
           );
           setCartItems(response.data);
+
+          // Calculate total price
+          const total = response.data.reduce((acc, item) => acc + item.item_price * item.quantity, 0);
+          setTotalPrice(total);
         }
       } catch (error) {
         console.error("Error fetching cart items:", error.message);
@@ -28,16 +32,25 @@ export default function PurchaseCart(props) {
     fetchCartItems();
   }, [user]);
 
-  // const handleAddToCart = () => {
-  //   const item = {
-  //     id: 1,
-  //     name: "Sample Item",
-  //     price: 19.99,
-  //     image: "https://example.com/sample-item.jpg",
-  //   };
+  // Function to handle checkout
+  const handleCheckout = async () => {
+    try {
+      const response = await axios.post("http://localhost:8080/api/orders/create", {
+        userId: user.userId, // Assuming `user` has a `userId` field
+        items: cartItems, // Pass the cart items to the backend
+      });
 
-  //   addItemToCart(item, user);
-  // };
+      if (response.status === 200) {
+        alert("Order placed successfully!");
+        navigate("/orders"); // Redirect to an order summary or history page
+      } else {
+        alert("Error placing the order.");
+      }
+    } catch (error) {
+      console.error("Error during checkout:", error.message);
+      alert("Checkout failed.");
+    }
+  };
 
   return (
     <>
@@ -45,24 +58,28 @@ export default function PurchaseCart(props) {
         <div className="purchaseCart">
           <h1>Shopping Cart</h1>
           {cartItems.length ? (
-            cartItems.map((item) => (
-              <div key={item.item_id} className="cart-item">
-                <Link to={`/items/${item.item_id}`}>
-                  <img
-                    className="item-image"
-                    src={item.item_image}
-                    alt={item.item_name}
-                  />
-                </Link>
-                <div>
+            <>
+              {cartItems.map((item) => (
+                <div key={item.item_id} className="cart-item-container">
                   <Link to={`/items/${item.item_id}`}>
-                    <h2>{item.item_name}</h2>
+                    <img
+                      className="cart-item-image"
+                      src={item.item_image}
+                      alt={item.item_name}
+                    />
                   </Link>
-                  <p>Price: ${item.item_price}</p>
-                  <p>Quantity: {item.quantity}</p>
+                  <div className="item-details">
+                    <Link to={`/items/${item.item_id}`}>
+                      <h2 className="item-name">{item.item_name}</h2>
+                    </Link>
+                    <p>Price: ${item.item_price}</p>
+                    <p>Quantity: {item.quantity}</p>
+                  </div>
                 </div>
-              </div>
-            ))
+              ))}
+              <h2>Total: ${totalPrice.toFixed(2)}</h2>
+              <button class="button-70" role="button"onClick={handleCheckout}>Checkout</button> {/* Checkout button */}
+            </>
           ) : (
             <p>No items in cart.</p>
           )}
