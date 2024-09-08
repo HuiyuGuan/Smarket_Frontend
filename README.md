@@ -14,4 +14,3 @@
 
 * order page
 * checkout page
-* feedback page
