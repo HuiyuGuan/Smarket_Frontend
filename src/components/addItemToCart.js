@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default async function addItemToCart(item, user) {
   try {
-    // First, check if the item already exists in the user's purchase cart
+    // Check if the item already exists in the user's purchase cart
     const response = await axios.get('http://localhost:8080/purchaseCarts', {
       params: {
         item_id: item.item_id,
@@ -14,8 +14,8 @@ export default async function addItemToCart(item, user) {
 
     if (existingItem) {
       // If the item exists, update the quantity
-      const updatedQuantity = existingItem.quantity + 1; // Increment the quantity by 1
-      await axios.put(`http://localhost:8080/purchaseCarts/${existingItem.item_id}`, {
+      const updatedQuantity = existingItem.quantity + 1;
+      await axios.put(`http://localhost:8080/purchaseCarts/${user.username}/${existingItem.item_id}`, {
         quantity: updatedQuantity,
       });
       console.log('Item quantity updated:', updatedQuantity);
@@ -27,7 +27,7 @@ export default async function addItemToCart(item, user) {
         item_name: item.name,
         item_price: item.price,
         item_image: item.image,
-        quantity: 1, // Default quantity
+        quantity: 1,
       });
       console.log('Item added to cart');
     }
