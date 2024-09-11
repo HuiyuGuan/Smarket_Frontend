@@ -17,6 +17,9 @@ import PurchaseCart from "./components/PurchaseCart";
 import ProductProfile from "./components/ProductProfile";
 import Search from "./components/Search";
 import AddProduct from "./components/AddProduct";
+import OrderSummary from "./components/OrderSummary";
+import OrderDetail from "./components/orderDetail";
+
 
 function App() {
   const [user, setUser] = useState([]);
@@ -49,7 +52,8 @@ function App() {
               path="/user/feedback"
               element={<UserFeedback user={user} />}
             />
-            <Route path="/order" element={<Orders user={user} />} />
+            <Route path="/orders" element={<OrderSummary user={user} />} />
+            <Route path="/orders/:orderId" element={<OrderDetail />} /> 
             <Route
               path="/PurchaseCarts"
               element={<PurchaseCart user={user} />}

@@ -35,14 +35,14 @@ export default function PurchaseCart(props) {
   // Function to handle checkout
   const handleCheckout = async () => {
     try {
-      const response = await axios.post("http://localhost:8080/api/orders/create", {
-        userId: user.userId, // Assuming `user` has a `userId` field
-        items: cartItems, // Pass the cart items to the backend
+      const response = await axios.post('http://localhost:8080/orders/create', {
+        username: user.username,  // Pass username instead of userId
+        items: cartItems,  // Pass the cart items to the backend
       });
-
+  
       if (response.status === 200) {
         alert("Order placed successfully!");
-        navigate("/orders"); // Redirect to an order summary or history page
+        navigate("/orders");  // Redirect to an order summary or history page
       } else {
         alert("Error placing the order.");
       }

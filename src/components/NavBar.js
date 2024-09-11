@@ -33,7 +33,7 @@ export default function NavBar(props) {
                 user
               </button>
             </Link>
-            <Link to="/order" className="order-link">
+            <Link to="/orders" className="order-link">
               <button class="button-70" role="button">
                 order
               </button>
