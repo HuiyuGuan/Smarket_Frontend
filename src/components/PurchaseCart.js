@@ -13,7 +13,7 @@ export default function PurchaseCart(props) {
       try {
         if (user && user.username) {
           const response = await axios.get(
-            "http://localhost:8080/purchaseCarts",
+            "https://smarket-backend.vercel.app/purchaseCarts",
             {
               params: { username: user.username }, // Send username as query parameter
             }
@@ -35,7 +35,7 @@ export default function PurchaseCart(props) {
   // Function to handle checkout
   const handleCheckout = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/orders/create', {
+      const response = await axios.post('https://smarket-backend.vercel.app/orders/create', {
         username: user.username,  // Pass username instead of userId
         items: cartItems,  // Pass the cart items to the backend
       });

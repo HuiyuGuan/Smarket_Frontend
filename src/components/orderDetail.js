@@ -9,7 +9,7 @@ function OrderDetail() {
   useEffect(() => {
     const fetchOrderDetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/orders/${orderId}`);
+        const response = await axios.get(`https://smarket-backend.vercel.app/orders/${orderId}`);
         setOrder(response.data);
       } catch (error) {
         console.error("Error fetching order details:", error);

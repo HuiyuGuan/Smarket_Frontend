@@ -12,7 +12,7 @@ export default function Search(props) {
   }, [location.state.item]);
 
   async function searchItem(filter) {
-    const items = await axios.get("http://localhost:8080/items");
+    const items = await axios.get("https://smarket-backend.vercel.app/items");
     if (items) {
       setItems(
         items.data.filter((item) =>

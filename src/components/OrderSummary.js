@@ -9,7 +9,7 @@ function OrderSummary({ user }) {
     const fetchOrders = async () => {
       try {
         if (user && user.username) {
-          const response = await axios.get(`http://localhost:8080/orders/${user.username}`);
+          const response = await axios.get(`https://smarket-backend.vercel.app/orders/${user.username}`);
           setOrders(response.data);
         }
       } catch (error) {

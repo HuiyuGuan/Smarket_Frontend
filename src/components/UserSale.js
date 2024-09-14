@@ -10,12 +10,12 @@ export default function UserSale(props) {
   const navigate = useNavigate();
 
   async function deleteSale(id) {
-    await axios.delete("http://localhost:8080/items/" + id);
+    await axios.delete("https://smarket-backend.vercel.app/items/" + id);
     fetchSale();
   }
 
   async function fetchSale() {
-    const sale = await axios.get("http://localhost:8080/items");
+    const sale = await axios.get("https://smarket-backend.vercel.app/items");
     if (sale) {
       setSale(sale.data.filter((item) => item.seller === user.username));
     }

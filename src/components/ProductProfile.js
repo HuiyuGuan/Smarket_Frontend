@@ -22,7 +22,7 @@ export default function ProductProfile(props) {
     if (!item && item_id) {
       const fetchItemDetails = async () => {
         try {
-          const response = await axios.get(`http://localhost:8080/items/${item_id}`);
+          const response = await axios.get(`https://smarket-backend.vercel.app/items/${item_id}`);
           setItem(response.data); // Set the fetched item data
           console.log("Fetched Item:", response.data);
         } catch (error) {
@@ -57,14 +57,14 @@ export default function ProductProfile(props) {
 
   async function buy() {
     try {
-      await axios.post("http://localhost:8080/orders", {
+      await axios.post("https://smarket-backend.vercel.app/orders", {
         username: user.username,
         item_id: item.item_id,
         order_date: new Date().toISOString(), // Use current date
         total: item.price * qty,
       });
 
-      await axios.put(`http://localhost:8080/items/${item.item_id}`, {
+      await axios.put(`https://smarket-backend.vercel.app/items/${item.item_id}`, {
         name: item.name,
         price: item.price,
         stock: item.stock - qty,

@@ -50,7 +50,7 @@ export default function AddProduct(props){
     }
     
     async function addItem(){
-        await axios.post("http://localhost:8080/items", {
+        await axios.post("https://smarket-backend.vercel.app/items", {
             name : name,
             price : price,
             stock : stock,

@@ -6,7 +6,7 @@ export default function Home() {
   const [random, setRandom] = useState([]);
 
   async function getRandom() {
-    const items = await axios.get("http://localhost:8080/items");
+    const items = await axios.get("https://smarket-backend.vercel.app/items");
     if (items) {
       setRandom(
         shuffle(

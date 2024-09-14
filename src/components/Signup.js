@@ -68,7 +68,7 @@ export default function Signup(props) {
   }
 
   async function addUser() {
-    await axios.post("http://localhost:8080/users", {
+    await axios.post("https://smarket-backend.vercel.app/users", {
       username: username,
       password: password,
       name: `${firstname} ${lastname}`,
@@ -78,7 +78,7 @@ export default function Signup(props) {
     });
   }
   async function fetchUser(username) {
-    const users = await axios.get("http://localhost:8080/users/" + username);
+    const users = await axios.get("https://smarket-backend.vercel.app/users/" + username);
     if (users) {
       setUser(users.data);
     }

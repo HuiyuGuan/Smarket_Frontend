@@ -12,7 +12,7 @@ export default function Login(props) {
   const [user, setUser] = useState([]);
 
   async function fetchUser(username) {
-    const users = await axios.get("http://localhost:8080/users/" + username);
+    const users = await axios.get("https://smarket-backend.vercel.app/users/" + username);
     if (users) {
       setUser(users.data);
     }

@@ -16,7 +16,7 @@ export default function Orders(props) {
   //   }
   async function fetchOrder() {
     try {
-      const response = await axios.get("http://localhost:8080/orders");
+      const response = await axios.get("https://smarket-backend.vercel.app/orders");
       if (response.data) {
         setOrder(
           response.data.filter((order) => order.username === user.username)
