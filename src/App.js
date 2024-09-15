@@ -37,7 +37,7 @@ function App() {
             path="/"
             element={<Layout user={user} setlogin={setlogin} />}
           >
-            <Route index element={<Home />} />
+                        <Route index element={<Home />} />
             <Route
               path="/login"
               element={<Login user={user} setlogin={setlogin} />}
