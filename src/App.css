@@ -167,6 +167,7 @@ a:hover {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  width: 100px;
 }
 .login {
   text-align: center;
