@@ -42,6 +42,7 @@ export default function PurchaseCart(props) {
   
       if (response.status === 200) {
         alert("Order placed successfully!");
+        await clearCart();
         navigate("/orders");  // Redirect to an order summary or history page
       } else {
         alert("Error placing the order.");
@@ -51,7 +52,22 @@ export default function PurchaseCart(props) {
       alert("Checkout failed.");
     }
   };
-
+  
+  const clearCart = async () => {
+    try {
+        const response = await axios.delete('https://smarket-backend.vercel.app/purchaseCarts/clear', {
+            data: { username: user.username }, // Pass username in the request body
+        });
+        if (response.status === 200) {
+            setCartItems([]); // Clear the cart state in the frontend
+            setTotalPrice(0); // Reset total price
+        } else {
+            console.error("Failed to clear the cart");
+        }
+    } catch (error) {
+        console.error("Error clearing cart:", error.message);
+    }
+};
   return (
     <>
       {user && user.username ? (
