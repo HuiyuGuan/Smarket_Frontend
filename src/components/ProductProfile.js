@@ -119,7 +119,7 @@ export default function ProductProfile(props) {
                 buy();
               }
             }}
-            className="button-70"
+            className="button-71"
             role="button"
           >
             Buy
@@ -127,7 +127,7 @@ export default function ProductProfile(props) {
 
           <button
             onClick={() => addItemToCart(item, user)}
-            className="button-70"
+            className="button-71"
             role="button"
           >
             Add to Cart

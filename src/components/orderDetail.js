@@ -34,11 +34,11 @@ function OrderDetail() {
       <p><strong>Order Date:</strong> {formattedDate}</p>
 
       <h2>Items in this Order:</h2>
-      {order.items && order.items.length > 0 ? (
+      {order.orderItems && order.orderItems.length > 0 ? (
         <ul>
-          {order.items.map((item) => (
-            <li key={item.item_id}>
-              {item.item_name} - {item.quantity} x ${item.item_price}
+          {order.orderItems.map((orderItem) => (
+            <li key={orderItem.item_id}>
+              {orderItem.item.item_name} - {orderItem.quantity} x ${orderItem.item.item_price}
             </li>
           ))}
         </ul>
