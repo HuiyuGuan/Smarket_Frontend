@@ -1,3 +1,5 @@
+# [Smarket](https://smarket-frontend.vercel.app/)
+
 # Develop Note
 ---
 ## The function I completed now:
@@ -8,9 +10,4 @@
 * search function
 * add item to sell
 * sign up and sign in user
-
-
-## incomplete function
-
-* order page
-* checkout page
+* order summary page
